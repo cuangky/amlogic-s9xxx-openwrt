@@ -1,0 +1,4 @@
+#!/bin/sh
+
+chmod +x /etc/openclash/core/*
+exit 0
