@@ -126,6 +126,7 @@ custom_packages() {
     wget -P files/etc/ https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/profile && chmod +x /etc/profile
     wget -P files/etc/ https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/shadow
     wget -P files/usr/bin https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/sysinfo && chmod +x /files/usr/bin/sysinfo
+    svn export https://github.com/kzer00/repo/trunk/aarch64_cortex-a53/core /files/etc/openclash/core && chmod +x /files/etc/openclash/core/*
     echo "src/gz custom_repo https://raw.githubusercontent.com/indowrt/indowrt/main/aarch64_cortex-a53" >> repositories.conf
     sed -i 's/option check_signature/# option check_signature/g' repositories.conf
     # Download other luci-app-xxx
@@ -176,7 +177,7 @@ rebuild_firmware() {
     # Selecting default packages, lib, theme, app and i18n, etc.
     # sorting by https://build.moz.one
     my_packages="\
-        ahostapd-common iw iwinfo \
+        hostapd-common iw iwinfo \
         kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 wpa-cli wpad-basic \
         luci luci-compat luci-lib-ipkg luci-theme-material \
         luci-mod-admin-full luci-mod-network luci-mod-status luci-mod-system  \
