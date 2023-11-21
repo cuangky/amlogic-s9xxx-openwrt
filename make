@@ -825,7 +825,7 @@ refactor_rootfs() {
     cd ${tag_rootfs}
 
     # Add directory
-    mkdir -p .reserved boot run
+    #mkdir -p .reserved boot run
 
     # Edit fstab
     [[ -f "etc/fstab" && -f "etc/config/fstab" ]] || error_msg "The [ fstab ] files does not exist."
@@ -1028,8 +1028,8 @@ EOF
     cd ${current_path}
 
     # Create snapshot
-    mkdir -p ${tag_rootfs}/.snapshots
-    btrfs subvolume snapshot -r ${tag_rootfs}/etc ${tag_rootfs}/.snapshots/etc-000 >/dev/null 2>&1
+    #mkdir -p ${tag_rootfs}/.snapshots
+    #btrfs subvolume snapshot -r ${tag_rootfs}/etc ${tag_rootfs}/.snapshots/etc-000 >/dev/null 2>&1
 
     sync && sleep 3
 }
