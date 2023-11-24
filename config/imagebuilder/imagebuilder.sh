@@ -71,7 +71,7 @@ download_imagebuilder() {
     else
         target_system="armvirt/64"
         target_name="armvirt-64"
-        target_profile="Default"
+        target_profile=""
     fi
 
     # Downloading imagebuilder files
@@ -217,7 +217,7 @@ rebuild_firmware() {
         "
 
     # Rebuild firmware
-    make image PROFILE="Default" PACKAGES="${my_packages}" FILES="files"
+    make image PROFILE="${target_profile}" PACKAGES="${my_packages}" FILES="files"
 
     sync && sleep 3
     echo -e "${INFO} [ openwrt/bin/targets/*/* ] directory status: $(ls bin/targets/*/* -l 2>/dev/null)"
