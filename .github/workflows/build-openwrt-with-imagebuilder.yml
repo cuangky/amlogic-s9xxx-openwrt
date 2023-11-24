@@ -51,6 +51,7 @@ on:
           - 5.15.1
           - 6.1.1
           - 5.15.139
+          - 6.1.63
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
@@ -63,6 +64,7 @@ on:
         type: choice
         options:
           - ophub/kernel
+          - cuangky/kernel
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
