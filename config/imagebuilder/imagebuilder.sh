@@ -117,6 +117,8 @@ adjust_settings() {
 custom_packages() {
     cd ${imagebuilder_path}
     echo -e "${STEPS} Start adding custom packages..."
+    chmod +x clash.sh
+    echo -e "${STEPS} Start adding clash core openclash..."
     bash clash.sh
     
     wget -P files/www/luci-static/resources/view/status/include https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/29_port.js
