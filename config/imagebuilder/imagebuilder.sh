@@ -117,8 +117,11 @@ adjust_settings() {
 custom_packages() {
     cd ${imagebuilder_path}
     echo -e "${STEPS} Start adding custom packages..."
+    # Create a [ packages ] directory
+    [[ -d "packages" ]] || mkdir packages
     
-    
+    paket=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | grep -o '"browser_download_url": ".*"' | sed 's/"//g' | sed 's/browser_download_url: //g')
+    wget ${paket} -q -P packages
     
     
     wget -P files/www/luci-static/resources/view/status/include https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/29_port.js
