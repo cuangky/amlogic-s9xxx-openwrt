@@ -122,7 +122,8 @@ custom_packages() {
     
     paket=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | grep -o '"browser_download_url": ".*"' | sed 's/"//g' | sed 's/browser_download_url: //g')
     wget ${paket} -q -P packages
-    
+    wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgen" -O files/sbin/ocgen 
+    wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgenup" -O files/sbin/ocgenup
     
     wget -P files/www/luci-static/resources/view/status/include https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/29_port.js
     wget -P files/usr/share/rpcd/acl.d/ https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/luci-mod-status-index.json
@@ -131,7 +132,7 @@ custom_packages() {
     wget -P files/etc/ https://raw.githubusercontent.com/kzer00/hoam/main/amlogic-s9xxx/common-files/rootfs/etc/banner
     wget -P files/etc/ https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/profile && chmod +x /etc/profile
     wget -P files/etc/ https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/shadow
-    wget -P files/usr/bin https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/sysinfo && chmod +x /files/usr/bin/sysinfo
+    wget -P files/usr/bin https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/sysinfo
     #svn export https://github.com/kzer00/repo/trunk/aarch64_cortex-a53/core /files/etc/openclash/core && chmod +x /files/etc/openclash/core/*
     echo "src/gz custom_repo https://raw.githubusercontent.com/indowrt/indowrt/main/aarch64_generic" >> repositories.conf
     sed -i 's/option check_signature/# option check_signature/g' repositories.conf
