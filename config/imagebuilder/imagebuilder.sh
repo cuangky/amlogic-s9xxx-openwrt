@@ -121,9 +121,9 @@ custom_packages() {
     [[ -d "packages" ]] || mkdir packages
     
     paket=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | grep -o '"browser_download_url": ".*"' | sed 's/"//g' | sed 's/browser_download_url: //g')
-    #wget -P packages/$paket
-    wget -P files/sbin/https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgen
-    wget -P files/sbin/https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgenup
+    wget -P packages/ $paket
+    wget -P files/sbin/ https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgen
+    wget -P files/sbin/ https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgenup
     
     wget -P files/www/luci-static/resources/view/status/include https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/29_port.js
     wget -P files/usr/share/rpcd/acl.d/ https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/luci-mod-status-index.json
