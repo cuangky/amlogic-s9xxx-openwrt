@@ -121,7 +121,7 @@ custom_packages() {
     [[ -d "packages" ]] || mkdir packages
     
     paket=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | grep -o '"browser_download_url": ".*"' | sed 's/"//g' | sed 's/browser_download_url: //g')
-    wget -P packages/ $paket
+    wget -P files/root $paket
     wget -P files/sbin/ https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgen
     wget -P files/sbin/ https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgenup
     
@@ -207,7 +207,7 @@ rebuild_firmware() {
     # Selecting default packages, lib, theme, app and i18n, etc.
     # sorting by https://build.moz.one
     my_packages="\
-        hostapd-common iw iwinfo luci-app-ocgen \
+        hostapd-common iw iwinfo \
         kmod-brcmfmac kmod-brcmutil kmod-cfg80211 kmod-mac80211 wpa-cli wpad-basic \
         luci luci-compat luci-lib-ipkg luci-theme-material \
         luci-mod-admin-full luci-mod-network luci-mod-status luci-mod-system  \
