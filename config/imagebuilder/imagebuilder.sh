@@ -121,7 +121,7 @@ custom_packages() {
     [[ -d "packages" ]] || mkdir packages
     
     paket=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | grep -o '"browser_download_url": ".*"' | sed 's/"//g' | sed 's/browser_download_url: //g')
-    wget -P packages ${paket}
+    wget -P packages${paket}
     wget -P files/sbin/https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgen
     wget -P files/sbin/https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgenup
     
