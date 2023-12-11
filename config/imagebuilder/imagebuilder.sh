@@ -136,6 +136,7 @@ custom_packages() {
     #svn export https://github.com/kzer00/repo/trunk/aarch64_cortex-a53/core /files/etc/openclash/core && chmod +x /files/etc/openclash/core/*
     echo "src/gz custom_repo https://raw.githubusercontent.com/indowrt/indowrt/main/aarch64_generic" >> repositories.conf
     sed -i 's/option check_signature/# option check_signature/g' repositories.conf
+    sed -i files/etc/opkg 's/option check_signature/# option check_signature/g' distfeeds.conf
     # Download other luci-app-xxx
     # ......
   echo -e "${STEPS} Start adding clash core openclash..."
@@ -213,9 +214,9 @@ rebuild_firmware() {
         luci-mod-admin-full luci-mod-network luci-mod-status luci-mod-system  \
         luci-proto-3g luci-proto-ncm  \
         luci-proto-wireguard luci-proto-qmi usb-modeswitch luci-app-ttyd \
-        kmod-usb-net-rndis -dnsmasq dnsmasq-full \
-        openssh-sftp-server luci-app-openclash \
-        luci-theme-neobirdkawe xmm-modem luci-app-modeminfo luci-app-atinout-mod \
+        kmod-usb-net-rndis -dnsmasq dnsmasq-full luci-app-3ginfo-lite \
+        openssh-sftp-server luci-app-openclash luci-proto-modemmanager luci-proto-mbim\
+        luci-theme-neobirdkawe xmm-modem luci-app-modeminfo luci-app-atinout \
         \
         ${config_list} \
         "
