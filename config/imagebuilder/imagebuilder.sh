@@ -134,11 +134,11 @@ custom_packages() {
     wget -P files/etc/ https://raw.githubusercontent.com/kzer00/hoam/main/amlogic-s9xxx/common-files/rootfs/etc/banner
     wget -P files/etc/ https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/profile && chmod +x /etc/profile
     wget -P files/etc/ https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/shadow
-    wget -P files/usr/bin https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/sysinfo
+    #wget -P files/usr/bin https://raw.githubusercontent.com/kzer00/repo/main/aarch64_cortex-a53/sysinfo
     #svn export https://github.com/kzer00/repo/trunk/aarch64_cortex-a53/core /files/etc/openclash/core && chmod +x /files/etc/openclash/core/*
     echo "src/gz custom_repo https://raw.githubusercontent.com/indowrt/indowrt/main/aarch64_generic" >> repositories.conf
-    sed -i 's/option check_signature/# option check_signature/g' repositories.conf
-    sed -i files/etc/opkg 's/option check_signature/# option check_signature/g' distfeeds.conf
+    sed -f 's/option check_signature/# option check_signature/g' repositories.conf
+    sed -f files/etc/opkg 's/option check_signature/# option check_signature/g' distfeeds.conf
     # Download other luci-app-xxx
     # ......
 
