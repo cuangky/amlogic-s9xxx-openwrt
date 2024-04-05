@@ -193,9 +193,8 @@ rebuild_firmware() {
         luci-mod-admin-full luci-mod-network luci-mod-status luci-mod-system  \
         luci-proto-3g luci-proto-ncm  \
         luci-proto-wireguard luci-proto-qmi usb-modeswitch luci-app-ttyd \
-        kmod-usb-net-rndis -dnsmasq dnsmasq-full luci-app-3ginfo-lite \
-        openssh-sftp-server luci-app-openclash luci-proto-modemmanager luci-proto-mbim\
-        luci-app-thailscale xmm-modem luci-app-modeminfo luci-app-atinout \
+        kmod-usb-net-rndis -dnsmasq dnsmasq-full \
+        openssh-sftp-server luci-proto-modemmanager luci-proto-mbim \
         \
         ${config_list} \
         "
