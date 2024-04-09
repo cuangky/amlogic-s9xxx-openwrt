@@ -117,7 +117,11 @@ adjust_settings() {
 # If one does not exist and place your custom ipk within this directory.
 custom_packages() {
     cd ${imagebuilder_path}
+    echo "src/gz custom_arch https://raw.githubusercontent.com/indowrt/indowrt/main/aarch64_generic" >> repositories.conf 
+    sed -i 's/option check_signature/# option check_signature/g' repositories.conf
     echo -e "${STEPS} Start adding custom packages..."
+    #sed -i 's/option check_signature/# option check_signature/g' >> repositories.conf
+    
 
     # Create a [ packages ] directory
     [[ -d "packages" ]] || mkdir packages
